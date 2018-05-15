@@ -5,7 +5,7 @@
 
 
 let allStudents = document.querySelectorAll('.student-item');
-
+let pages;
 
 function showPage(pageNumber, allStudents) {
     const upperIndex = (pageNumber * 10) - 1;
@@ -23,12 +23,14 @@ function showPage(pageNumber, allStudents) {
 } 
 
  //console.log(hideList);
- console.log(allStudents);
- showPage(6, allStudents);
+ //console.log(allStudents);
+ showPage(1, allStudents);
  
 
- function appendPageLinks(/* take a student list as an argument */) {
+ function appendPageLinks(allStudents) {
     // determine how many pages for this student list
+    pages = Math.ceil(allStudents.length / 10);
+    console.log(pages);
     // create a page link section
     // "for" every page
     // add a page link to the page link section
@@ -37,5 +39,25 @@ function showPage(pageNumber, allStudents) {
     // define what happens when you click a link (event listener)
     // Use showPage to display the page for the link clicked
     // mark that link as "active"
-    
-    }
+    let ul = document.getElementsByTagName('ul')[0];
+    console.log(ul);
+    let paginationDiv = ul.parentNode;
+    console.log(paginationDiv);
+    let div = document.createElement('div');
+    console.log(div);
+    paginationDiv.appendChild(div).className = 'pagination';
+    console.log(div);
+
+
+}
+
+      
+    // listUl.addEventListener('click', (event) => {
+    //     if (event.target.tagName == 'BUTTON') {
+    //       let li = event.target.parentNode;
+    //       let ul = li.parentNode;
+    //       ul.removeChild(li);
+    //     }
+
+    console.log(pages);
+    appendPageLinks(allStudents);
