@@ -30,7 +30,7 @@ function showPage(pageNumber, allStudents) {
  function appendPageLinks(allStudents) {
     // determine how many pages for this student list
     pages = Math.ceil(allStudents.length / 10);
-    console.log(pages);
+    //console.log(pages);
     // create a page link section
     // "for" every page
     // add a page link to the page link section
@@ -46,9 +46,16 @@ function showPage(pageNumber, allStudents) {
     let div = document.createElement('div');
     console.log(div);
     paginationDiv.appendChild(div).className = 'pagination';
-    console.log(div);
+    console.log(paginationDiv);
 
+    let ate = document.getElementsByClassName('pagination')[0];
+    console.log(ate);
+    let divUl = document.createElement('ul');
+    ate.appendChild(divUl);
 
+    // let divPaginationUl = document.createElement('ul');
+    // console.log(divPaginationUl);
+    // let paginationUl
 }
 
       
@@ -59,5 +66,5 @@ function showPage(pageNumber, allStudents) {
     //       ul.removeChild(li);
     //     }
 
-    console.log(pages);
+    //console.log(pages);
     appendPageLinks(allStudents);
