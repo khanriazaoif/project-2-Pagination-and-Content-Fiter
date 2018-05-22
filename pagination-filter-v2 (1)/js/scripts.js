@@ -36,17 +36,31 @@ function showPage(pageNumber, allStudents) {
     paginationDiv.appendChild(div).className = 'pagination';
     // Variable pagination that selects the class pagination that was previously created
     let pagination = document.getElementsByClassName('pagination')[0];
-    // Variable divUl creates a ul element
-    let divUl = document.createElement('ul');
+    console.log(pagination);
+    // Variable createUl creates a ul element
+    let createUl = document.createElement('ul');
     // Variable pagination and as a child node the ul created above
-    pagination.appendChild(divUl);
+    pagination.appendChild(createUl);
 
     //For loop that loops over the number of students in your list divided by 10. Create an li element and then add to the Ul element.
+    //for(let i = 0; i <= allStudents.length/10; i++){
+    //     let createLi = document.createElement('li');
+    //     createUl.appendChild(createLi).setAttribute('href','#');
+    //     createLi.textContent = [i + 1];
+    //     console.log(createLi);
+    // }
     for(let i = 0; i <= allStudents.length/10; i++){
-        let createli = document.createElement('li');
-        divUl.appendChild(createli).setAttribute('href','#');
-        createli.textContent = [i + 1];
-        console.log(createli);
+        let createLi = document.createElement('li');
+        createUl.appendChild(createLi);
+        console.log(createUl);
+        let li = document.getElementsByTagName('li');
+        console.log(li);
+        let a = document.createElement('a');
+        a.setAttribute('href',[i + 1]);
+        console.log(a);       
+        createLi.appendChild(a);
+        a.textContent = [i + 1];
+        console.log(createLi);
     }
 }
     // Function appendPageLinks with argument allStudents which is the entire list of students.
