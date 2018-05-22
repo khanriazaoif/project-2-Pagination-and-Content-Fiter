@@ -3,33 +3,45 @@
 //The showPage Function
 //This function builds a list of ten students and displays it on the page. The students displayed depends on the page number passed to this function. The function should loop through all the students in the list and determine if each student is on this page. It will show all the students on this page and hide the rest. Here are some ideas for how this could work in code:
 
-
+//Variable allStudents selects the list items with class .student-item
 let allStudents = document.querySelectorAll('.student-item');
-let pages;
 
+//function showPage with two arguments, pageNumber and allStudents. There are two variables upperIndex and lowerIndex that take the pageNumber argument and both times 10. Then on upperIndex - 1 and on the lowerIndex -10. For example if you pass the numberal 1 as the pageNumber argument, then upperIndex = (1*10) - 1 and lowerIndex = (1 * 10) -10 which output upperIndex = 9; lowerIndex = 0; This would output the first 10 students.
 function showPage(pageNumber, allStudents) {
     const upperIndex = (pageNumber * 10) - 1;
     const lowerIndex = (pageNumber * 10) -10;
-    // loop through all students in our student list argument
+    //For loop that checks the length of the list items (amount of student list items) At first it makes allStudents display nothing so they are hidden and then the IF statement looks at whether the index is >= lowerIndex AND index is <= upperIndex. If so then show the list items. So in this case it is showing the first 10 students
     for(let i = 0; i < allStudents.length; i++) {
-    // hide all students on the page 
-        allStudents[i].style.display = 'none';
+    allStudents[i].style.display = 'none';
         if( i >= lowerIndex && i <= upperIndex) {
-            // show the student
             allStudents[i].style.display = 'block';
         }
   } 
-    // if student should be on this page number
+ 
 } 
-
- //console.log(hideList);
- //console.log(allStudents);
+//Calling the showPage function, passing the arguments 1 for the pageNumber and allStudents is the document.querySelectorAll('.student-item'); student list items.
  showPage(1, allStudents);
  
 
  function appendPageLinks(allStudents) {
     // determine how many pages for this student list
-    pages = Math.ceil(allStudents.length / 10);
+    let ages = Math.ceil(allStudents.length / 10);
+    let ul = document.getElementsByTagName('ul')[0];
+    let paginationDiv = ul.parentNode;
+    let div = document.createElement('div');
+    paginationDiv.appendChild(div).className = 'pagination';
+  
+    let pagination = document.getElementsByClassName('pagination')[0];
+    let divUl = document.createElement('ul');
+    pagination.appendChild(divUl);
+
+    for(let i = 0; i <= allStudents.length/10; i++){
+        let li = document.createElement('li');
+        divUl.appendChild(li);
+    }
+}
+    appendPageLinks(allStudents);
+
     //console.log(pages);
     // create a page link section
     // "for" every page
@@ -38,27 +50,12 @@ function showPage(pageNumber, allStudents) {
     // append our new page link section to the site
     // define what happens when you click a link (event listener)
     // Use showPage to display the page for the link clicked
-    // mark that link as "active"
-    let ul = document.getElementsByTagName('ul')[0];
-    console.log(ul);
-    let paginationDiv = ul.parentNode;
-    console.log(paginationDiv);
-    let div = document.createElement('div');
-    console.log(div);
-    paginationDiv.appendChild(div).className = 'pagination';
-    console.log(paginationDiv);
-
-    let ate = document.getElementsByClassName('pagination')[0];
-    console.log(ate);
-    let divUl = document.createElement('ul');
-    ate.appendChild(divUl);
-    let li = document.createElement('li');
-    divUl.appendChild(li);
+    // mark that link as "active"    
 
     // let divPaginationUl = document.createElement('ul');
     // console.log(divPaginationUl);
     // let paginationUl
-}
+
 
       
     // listUl.addEventListener('click', (event) => {
@@ -69,7 +66,7 @@ function showPage(pageNumber, allStudents) {
     //     }
 
     //console.log(pages);
-    appendPageLinks(allStudents);
+    
 
 
 
