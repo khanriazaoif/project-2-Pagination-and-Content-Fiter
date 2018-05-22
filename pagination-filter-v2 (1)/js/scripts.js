@@ -43,12 +43,6 @@ function showPage(pageNumber, allStudents) {
     pagination.appendChild(createUl);
 
     //For loop that loops over the number of students in your list divided by 10. Create an li element and then add to the Ul element.
-    //for(let i = 0; i <= allStudents.length/10; i++){
-    //     let createLi = document.createElement('li');
-    //     createUl.appendChild(createLi).setAttribute('href','#');
-    //     createLi.textContent = [i + 1];
-    //     console.log(createLi);
-    // }
     for(let i = 0; i <= allStudents.length/10; i++){
         let createLi = document.createElement('li');
         createUl.appendChild(createLi);
@@ -56,7 +50,7 @@ function showPage(pageNumber, allStudents) {
         let li = document.getElementsByTagName('li');
         console.log(li);
         let a = document.createElement('a');
-        a.setAttribute('href',[i + 1]);
+        a.setAttribute('href','#');
         console.log(a);       
         createLi.appendChild(a);
         a.textContent = [i + 1];
