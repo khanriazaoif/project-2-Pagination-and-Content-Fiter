@@ -43,17 +43,44 @@ function showPage(pageNumber, allStudents) {
 
     //For loop that loops over the number of students in your list divided by 10. Create an li element and then add to the Ul element.
     for(let i = 0; i <= allStudents.length/10; i++){
-        let li = document.createElement('li');
-        divUl.appendChild(li);
+        let createli = document.createElement('li');
+        divUl.appendChild(createli).setAttribute('href','#');
+        createli.textContent = [i + 1];
+        console.log(createli);
     }
 }
     // Function appendPageLinks with argument allStudents which is the entire list of students.
     appendPageLinks(allStudents);
 
 
-    //**********BELOW IS RANDOM INFORMATION IN NO SPECIFIC ORDER**********//
+//**********BELOW IS RANDOM INFORMATION IN NO SPECIFIC ORDER**********//
 
-    //console.log(pages);
+//**********WHAT THE PAGINATION LINKS SHOULD LOOK LIKE**********//
+
+//     <div class="pagination">
+//     <ul>
+//       <li>
+//         <a class="active" href="#">1</a>
+//       </li>
+//        <li>
+//         <a href="#">2</a>
+//       </li>
+//        <li>
+//         <a href="#">3</a>
+//       </li>
+//        <li>
+//         <a href="#">4</a>
+//       </li>
+//        <li>
+//         <a href="#">5</a>
+//       </li>
+//     </ul>
+//   </div>
+
+
+//****************
+
+  //console.log(pages);
     // create a page link section
     // "for" every page
     // add a page link to the page link section
@@ -77,28 +104,6 @@ function showPage(pageNumber, allStudents) {
     //     }
 
     //console.log(pages);
-    
 
-//**********WHAT THE PAGINATION LINKS SHOULD LOOK LIKE**********//
-
-//     <div class="pagination">
-//     <ul>
-//       <li>
-//         <a class="active" href="#">1</a>
-//       </li>
-//        <li>
-//         <a href="#">2</a>
-//       </li>
-//        <li>
-//         <a href="#">3</a>
-//       </li>
-//        <li>
-//         <a href="#">4</a>
-//       </li>
-//        <li>
-//         <a href="#">5</a>
-//       </li>
-//     </ul>
-//   </div>
 
     
