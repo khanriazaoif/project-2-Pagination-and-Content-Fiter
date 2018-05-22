@@ -22,25 +22,36 @@ function showPage(pageNumber, allStudents) {
 //Calling the showPage function, passing the arguments 1 for the pageNumber and allStudents is the document.querySelectorAll('.student-item'); student list items.
  showPage(1, allStudents);
  
-
+//Function appendPageLinks with the argument allStudents which is the list of students
  function appendPageLinks(allStudents) {
-    // determine how many pages for this student list
-    let ages = Math.ceil(allStudents.length / 10);
+    // Variable pages to determine how many pages for this student list
+    let pages = Math.ceil(allStudents.length / 10);
+    // Variable ul that selects the element ul at index 0
     let ul = document.getElementsByTagName('ul')[0];
+    // Variable paginationDiv that is equal to the parentNode of the ul[0]
     let paginationDiv = ul.parentNode;
+    // Var div creates a div element
     let div = document.createElement('div');
+    // Apend the new div element with class name pagination to the Ul
     paginationDiv.appendChild(div).className = 'pagination';
-  
+    // Variable pagination that selects the class pagination that was previously created
     let pagination = document.getElementsByClassName('pagination')[0];
+    // Variable divUl creates a ul element
     let divUl = document.createElement('ul');
+    // Variable pagination and as a child node the ul created above
     pagination.appendChild(divUl);
 
+    //For loop that loops over the number of students in your list divided by 10. Create an li element and then add to the Ul element.
     for(let i = 0; i <= allStudents.length/10; i++){
         let li = document.createElement('li');
         divUl.appendChild(li);
     }
 }
+    // Function appendPageLinks with argument allStudents which is the entire list of students.
     appendPageLinks(allStudents);
+
+
+    //**********BELOW IS RANDOM INFORMATION IN NO SPECIFIC ORDER**********//
 
     //console.log(pages);
     // create a page link section
@@ -68,7 +79,7 @@ function showPage(pageNumber, allStudents) {
     //console.log(pages);
     
 
-
+//**********WHAT THE PAGINATION LINKS SHOULD LOOK LIKE**********//
 
 //     <div class="pagination">
 //     <ul>
