@@ -5,6 +5,7 @@
 
 //Variable allStudents selects the list items with class .student-item
 let allStudents = document.querySelectorAll('.student-item');
+//
 
 //function showPage with two arguments, pageNumber and allStudents. There are two variables upperIndex and lowerIndex that take the pageNumber argument and both times 10. Then on upperIndex - 1 and on the lowerIndex -10. For example if you pass the numberal 1 as the pageNumber argument, then upperIndex = (1*10) - 1 and lowerIndex = (1 * 10) -10 which output upperIndex = 9; lowerIndex = 0; This would output the first 10 students.
 function showPage(pageNumber, allStudents) {
@@ -41,25 +42,32 @@ function showPage(pageNumber, allStudents) {
     // Variable pagination and as a child node the ul created above
     pagination.appendChild(createUl);
 
+    let divClassPagination = document.querySelector('.pagination');
+   
+
     //For loop that loops over the number of students in your list divided by 10. Create an li element and then add to the Ul element.
     for(let i = 0; i <= allStudents.length/10; i++){
         let createLi = document.createElement('li');
         createUl.appendChild(createLi);
         let li = document.getElementsByTagName('li');
-        console.log(li);
+       
         let a = document.createElement('a');
         a.setAttribute('href','#');
-        console.log(a);       
+             
         createLi.appendChild(a);
         a.textContent = [i + 1];
-        console.log(createLi);
+       
     }
     // let linkParent = document.getElementsByTagName('li');
     // console.log(linkParent);    
-             paginationDiv.addEventListener('click', (event) => {
-        
-             event.target.className = 'active';
-             //console.log(current);
+        divClassPagination.addEventListener('click', (event) => {
+                    if(event.target.classList.contains('active')) {
+                        event.target.classList.remove('active');
+                    } else {
+                        event.target.className = 'active';
+                        console.log(event.target);
+                        //console.log(divClassPagination);
+                    }
          });
         
         //  let linkParent = document.getElementsByTagName('li');
