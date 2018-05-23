@@ -22,8 +22,8 @@ function showPage(pageNumber, allStudents) {
 //Calling the showPage function, passing the arguments 1 for the pageNumber and allStudents is the document.querySelectorAll('.student-item'); student list items.
  showPage(1, allStudents);
  
-//Function appendPageLinks with the argument allStudents which is the list of students
- function appendPageLinks(allStudents) {
+//Function appendPagelinks with the argument allStudents which is the list of students
+ function appendPagelinks(allStudents) {
     // Variable pages to determine how many pages for this student list
     let pages = Math.ceil(allStudents.length / 10);
     // Variable ul that selects the element ul at index 0
@@ -36,7 +36,6 @@ function showPage(pageNumber, allStudents) {
     paginationDiv.appendChild(div).className = 'pagination';
     // Variable pagination that selects the class pagination that was previously created
     let pagination = document.getElementsByClassName('pagination')[0];
-    console.log(pagination);
     // Variable createUl creates a ul element
     let createUl = document.createElement('ul');
     // Variable pagination and as a child node the ul created above
@@ -46,7 +45,6 @@ function showPage(pageNumber, allStudents) {
     for(let i = 0; i <= allStudents.length/10; i++){
         let createLi = document.createElement('li');
         createUl.appendChild(createLi);
-        console.log(createUl);
         let li = document.getElementsByTagName('li');
         console.log(li);
         let a = document.createElement('a');
@@ -56,14 +54,41 @@ function showPage(pageNumber, allStudents) {
         a.textContent = [i + 1];
         console.log(createLi);
     }
+    // let linkParent = document.getElementsByTagName('li');
+    // console.log(linkParent);    
+             paginationDiv.addEventListener('click', (event) => {
+        
+             event.target.className = 'active';
+             //console.log(current);
+         });
+        
+        //  let linkParent = document.getElementsByTagName('li');
+        //  console.log(linkParent);    
+        //   for (let i = 0; i < linkParent.length; i++) {
+        //       linkParent[i].addEventListener('click', () => {
+        //           let current = document.querySelector('a');
+        //           console.log(current);
+        //           current.className = 'active';
+        //           console.log(a);
+        //       });
+                 
+    //  }
 }
-    // Function appendPageLinks with argument allStudents which is the entire list of students.
-    appendPageLinks(allStudents);
+    // Function appendPagelinks with argument allStudents which is the entire list of students.
+    appendPagelinks(allStudents);
 
 
 //**********BELOW IS RANDOM INFORMATION IN NO SPECIFIC ORDER**********//
 
-//**********WHAT THE PAGINATION LINKS SHOULD LOOK LIKE**********//
+// .pagination li a{
+//     border: 1px solid #eaeaea;
+//     border-radius: 5px;
+//     padding: 3px 8px;
+//     text-decoration: none;
+//     color: #4ba6c3;
+//   }
+
+//**********WHAT THE PAGINATION linkParentS SHOULD LOOK LIKE**********//
 
 //     <div class="pagination">
 //     <ul>
@@ -89,14 +114,14 @@ function showPage(pageNumber, allStudents) {
 //****************
 
   //console.log(pages);
-    // create a page link section
+    // create a page linkParent section
     // "for" every page
-    // add a page link to the page link section
-    // remove the old page link section from the site
-    // append our new page link section to the site
-    // define what happens when you click a link (event listener)
-    // Use showPage to display the page for the link clicked
-    // mark that link as "active"    
+    // add a page linkParent to the page linkParent section
+    // remove the old page linkParent section from the site
+    // append our new page linkParent section to the site
+    // define what happens when you click a linkParent (event listener)
+    // Use showPage to display the page for the linkParent clicked
+    // mark that linkParent as "active"    
 
     // let divPaginationUl = document.createElement('ul');
     // console.log(divPaginationUl);
@@ -105,7 +130,7 @@ function showPage(pageNumber, allStudents) {
 
       
     // listUl.addEventListener('click', (event) => {
-    //     if (event.target.tagName == 'BUTTON') {
+    //     if (event.target.tagName == 'linkParent') {
     //       let li = event.target.parentNode;
     //       let ul = li.parentNode;
     //       ul.removeChild(li);
